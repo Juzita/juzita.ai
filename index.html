@@ -53,22 +53,45 @@
       background-color: #fff;
       border-top: 1px solid #eee;
       padding: 3rem 1rem;
-      text-align: left;
+      text-align: center;
     }
     .cases h2 {
-      text-align: center;
       color: #D97A41;
     }
-    .case-item {
-      margin: 2rem 0;
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .case-item h3 {
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 280px;
+      padding: 1rem;
+      text-align: left;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .card h3 {
       margin: 0.5rem 0;
       color: #333;
+      font-size: 1.1rem;
     }
-    .case-item p {
-      margin: 0;
+    .card p {
+      display: none;
+      margin-top: 0.5rem;
       color: #555;
+      font-size: 0.95rem;
+    }
+    .card.open p {
+      display: block;
     }
     footer {
       margin-top: 4rem;
@@ -79,6 +102,16 @@
       color: #777;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('open');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -94,17 +127,31 @@
     </div>
   </main>  <section class="cases">
     <h2>Casos que vamos atender</h2>
-    <div class="case-item">
-      <h3>Maria, microempreendedora de SP</h3>
-      <p>Economizou R$ 427 em cobranças indevidas de internet em 3 meses com o apoio da Juzita.</p>
-    </div>
-    <div class="case-item">
-      <h3>Roberto, aposentado de MG</h3>
-      <p>Recebeu reembolso integral da conta de luz após detecção automática de erro e reclamação assistida.</p>
-    </div>
-    <div class="case-item">
-      <h3>Luciana, estudante do RJ</h3>
-      <p>Conseguiu o ressarcimento de seus equipamentos eletrônicos queimados após quedas frequentes de energia, causadas pela má prestação do serviço elétrico.</p>
+    <div class="card-container">
+      <div class="card">
+        <h3>Maria, microempreendedora de SP</h3>
+        <p>Recebeu o reembolso do valor pago duplicado devido a cobranças indevidas de serviços não contratados de telecomunicação e internet com o apoio da Juzita.</p>
+      </div>
+      <div class="card">
+        <h3>Roberto, aposentado de MG</h3>
+        <p>Recebeu reembolso integral da conta de luz após detecção automática de erro e reclamação assistida.</p>
+      </div>
+      <div class="card">
+        <h3>Luciana, estudante do RJ</h3>
+        <p>Conseguiu o ressarcimento de seus equipamentos eletrônicos queimados após quedas frequentes de energia, causadas pela má prestação do serviço elétrico.</p>
+      </div>
+      <div class="card">
+        <h3>André, bancário de Curitiba</h3>
+        <p>Foi cobrado por um seguro que nunca contratou e, com o apoio da Juzita, conseguiu o estorno total e cancelamento do serviço junto ao banco.</p>
+      </div>
+      <div class="card">
+        <h3>Rita, professora em Belo Horizonte</h3>
+        <p>Recebia cobranças mensais após cancelar sua linha de celular. A Juzita detectou o problema e garantiu o encerramento correto do serviço e o reembolso das cobranças.</p>
+      </div>
+      <div class="card">
+        <h3>João, comerciante em Salvador</h3>
+        <p>Foi surpreendido por uma conta de água com medição incorreta. A Juzita identificou o erro e forçou a revisão da fatura com correção imediata pela concessionária.</p>
+      </div>
     </div>
   </section>  <footer>
     &copy; 2025 Juzita AI. Todos os direitos reservados.
