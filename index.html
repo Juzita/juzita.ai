@@ -14,7 +14,7 @@
     header {
       background-color: #ffffff;
       border-bottom: 1px solid #ddd;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 1rem;
       text-align: center;
     }
     header h1 {
@@ -22,9 +22,29 @@
       font-size: 2.8rem;
       color: #D97A41;
     }
+    .faixa-container {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .faixa-1 {
+      width: 60%;
+      height: 4px;
+      background-color: #D97A41;
+      border-radius: 2px;
+    }
+    .faixa-2 {
+      width: 60%;
+      height: 2px;
+      background-color: #EBCB8B;
+      margin-top: 3px;
+      border-radius: 1px;
+    }
     header p {
       font-size: 1.1rem;
       color: #555;
+      margin-top: 1rem;
     }
     main {
       max-width: 800px;
@@ -117,13 +137,17 @@
 <body>
   <header>
     <h1>Juzita AI</h1>
+    <div class="faixa-container">
+      <div class="faixa-1"></div>
+      <div class="faixa-2"></div>
+    </div>
     <p>Inteligência artificial ética e protetora, feita para garantir seus direitos.</p>
   </header>  <main>
     <p>
       Juzita é uma plataforma de inteligência artificial que protege consumidores contra abusos de grandes empresas. Detectamos cobranças indevidas, monitoramos serviços e automatizamos a defesa dos seus direitos.
     </p>
   </main>  <section class="cases">
-    <h2>Casos</h2>
+    <h2>Casos:</h2>
     <div class="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-item">
