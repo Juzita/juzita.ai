@@ -87,17 +87,30 @@
     }
     .carousel-buttons {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 1rem;
       margin-top: 1rem;
     }
     .carousel-buttons button {
-      background-color: #D97A41;
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border-radius: 4px;
+      background-color: transparent;
+      border: 1px solid #ccc;
+      color: #444;
+      padding: 0.4rem 0.8rem;
+      font-size: 1.2rem;
+      border-radius: 50%;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .carousel-buttons button:hover {
+      background-color: #eee;
+    }
+    footer {
+      margin-top: 4rem;
+      padding: 2rem;
+      background-color: #f0f0f0;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #777;
     }
   </style>
 </head>
@@ -114,7 +127,7 @@
       <a href="https://forms.gle/NQKnLtbjR2vvUxiP6" class="button" target="_blank">Trabalhe Conosco</a>
     </div>
   </main>  <section class="cases">
-    <h2>Atuacões Juzita</h2>
+    <h2>Casos</h2>
     <div class="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-item">
@@ -143,8 +156,8 @@
         </div>
       </div>
       <div class="carousel-buttons">
-        <button onclick="moveCarousel(-1)">&larr; Anterior</button>
-        <button onclick="moveCarousel(1)">Próximo &rarr;</button>
+        <button onclick="moveCarousel(-1)">&#8592;</button>
+        <button onclick="moveCarousel(1)">&#8594;</button>
       </div>
     </div>
   </section>  <footer>
@@ -153,11 +166,20 @@
     let currentIndex = 0;
     const track = document.getElementById('carouselTrack');
     const items = track.children;
+    const total = items.length;
 
-    function moveCarousel(direction) {
-      const total = items.length;
-      currentIndex = (currentIndex + direction + total) % total;
+    function updateCarousel() {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
+
+    function moveCarousel(direction) {
+      currentIndex = (currentIndex + direction + total) % total;
+      updateCarousel();
+    }
+
+    // Auto-play
+    setInterval(() => {
+      moveCarousel(1);
+    }, 3500);
   </script></body>
 </html>
