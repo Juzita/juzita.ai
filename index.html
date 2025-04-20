@@ -6,59 +6,107 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F8F5F0;
-      color: #333;
-      text-align: center;
-      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #FAFAFA;
+      color: #222;
+      line-height: 1.6;
     }
     header {
-      padding: 1rem;
-      background-color: #D97A41;
-      color: white;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 2rem 1rem;
+      text-align: center;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #D97A41;
     }
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 1rem auto;
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .button-group {
+      margin-top: 2rem;
     }
     a.button {
       display: inline-block;
-      margin-top: 1.5rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      padding: 1rem 2rem;
+      margin: 0.5rem;
+      padding: 0.8rem 1.6rem;
       background-color: #218B82;
       color: white;
       text-decoration: none;
-      font-size: 1.1rem;
-      border-radius: 5px;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    a.button:hover {
+      background-color: #1b726b;
+    }
+    .cases {
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      padding: 3rem 1rem;
+      text-align: left;
+    }
+    .cases h2 {
+      text-align: center;
+      color: #D97A41;
+    }
+    .case-item {
+      margin: 2rem 0;
+    }
+    .case-item h3 {
+      margin: 0.5rem 0;
+      color: #333;
+    }
+    .case-item p {
+      margin: 0;
+      color: #555;
     }
     footer {
       margin-top: 4rem;
+      padding: 2rem;
+      background-color: #f0f0f0;
       font-size: 0.9rem;
-      color: #666;
+      text-align: center;
+      color: #777;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Juzita AI</h1>
-    <p>Justiça Digital com Propósito Humano</p>
+    <p>Inteligência artificial ética e protetora, feita para garantir seus direitos.</p>
   </header>  <main>
     <p>
-      Juzita é uma inteligência artificial feita para proteger consumidores contra abusos de grandes empresas. Ela monitora serviços, identifica cobranças indevidas e automatiza a defesa de quem mais precisa.
+      Juzita é uma plataforma de inteligência artificial que protege consumidores contra abusos de grandes empresas. Detectamos cobranças indevidas, monitoramos serviços e automatizamos a defesa dos seus direitos.
     </p>
-    <p>
-      Nosso projeto está em campanha de financiamento coletivo. Apoie agora e ajude a levar a justiça digital a quem realmente precisa.
-    </p>
-    <a href="https://benfeitoria.com/projetojuzita" class="button" target="_blank">Apoiar no Benfeitoria</a>
-    <a href="https://forms.gle/NQKnLtbjR2vvUxiP6" class="button" target="_blank">Quero trabalhar com a Juzita</a>
-  </main>  <footer>
+    <div class="button-group">
+      <a href="https://benfeitoria.com/projetojuzita" class="button" target="_blank">Apoiar o Projeto</a>
+      <a href="https://forms.gle/NQKnLtbjR2vvUxiP6" class="button" target="_blank">Trabalhe Conosco</a>
+    </div>
+  </main>  <section class="cases">
+    <h2>Casos de Impacto</h2>
+    <div class="case-item">
+      <h3>Maria, microempreendedora de SP</h3>
+      <p>Economizou R$ 427 em cobranças indevidas de internet em 3 meses com o apoio da Juzita.</p>
+    </div>
+    <div class="case-item">
+      <h3>Roberto, aposentado de MG</h3>
+      <p>Recebeu reembolso integral da conta de luz após detecção automática de erro e reclamação assistida.</p>
+    </div>
+    <div class="case-item">
+      <h3>Luciana, estudante do RJ</h3>
+      <p>Recuperou valores de assinatura de streaming cancelada sem aviso — tudo sem sair do WhatsApp.</p>
+    </div>
+  </section>  <footer>
     &copy; 2025 Juzita AI. Todos os direitos reservados.
   </footer>
 </body>
