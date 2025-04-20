@@ -47,23 +47,6 @@
       padding: 0 1rem;
       text-align: center;
     }
-    .button-group {
-      margin-top: 2rem;
-    }
-    a.button {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.8rem 1.6rem;
-      background-color: #218B82;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    a.button:hover {
-      background-color: #1b726b;
-    }
     .cases {
       background-color: #fff;
       border-top: 1px solid #eee;
@@ -119,6 +102,20 @@
     .carousel-buttons button:hover {
       background-color: #eee;
     }
+    .link-group {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+    }
+    .link-group a {
+      color: #218B82;
+      text-decoration: none;
+    }
+    .link-group a:hover {
+      text-decoration: underline;
+    }
     footer {
       margin-top: 4rem;
       padding: 2rem;
@@ -142,7 +139,7 @@
       Juzita é uma plataforma de inteligência artificial que protege consumidores contra abusos de grandes empresas. Detectamos cobranças indevidas, monitoramos serviços e automatizamos a defesa dos seus direitos.
     </p>
   </main>  <section class="cases">
-    <h2>Casos:</h2>
+    <h2>Casos que vamos atender</h2>
     <div class="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-item">
@@ -175,9 +172,10 @@
         <button onclick="moveCarousel(1)">&#8594;</button>
       </div>
     </div>
-    <div class="button-group">
-      <a href="https://benfeitoria.com/projetojuzita" class="button" target="_blank">Apoiar o Projeto</a>
-      <a href="https://forms.gle/NQKnLtbjR2vvUxiP6" class="button" target="_blank">Trabalhe Conosco</a>
+    <div class="link-group">
+      <a href="https://benfeitoria.com/projetojuzita" target="_blank">Apoiar o Projeto</a>
+      <a href="https://forms.gle/NQKnLtbjR2vvUxiP6" target="_blank">Trabalhe Conosco</a>
+      <a href="https://forms.gle/jR5H6UTK3ST7vUsD8" target="_blank">Entrar na Fila de Acesso</a>
     </div>
   </section>  <footer>
     &copy; 2025 Juzita AI. Todos os direitos reservados.
@@ -196,7 +194,6 @@
       updateCarousel();
     }
 
-    // Auto-play
     setInterval(() => {
       moveCarousel(1);
     }, 3500);
