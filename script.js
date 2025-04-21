@@ -59,4 +59,32 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  
+  // Manipulação do formulário de inscrição na lista de espera
+  const waitlistForm = document.querySelector('.waitlist-form');
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      
+      try {
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          alert('Cadastro realizado! Você receberá atualizações por e-mail e WhatsApp quando a Juzita estiver pronta.');
+          this.reset();
+        } else {
+          alert('Ocorreu um erro. Por favor, tente novamente.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Fallback para redirecionamento em caso de erro
+        window.location.href = this.action + "?" + new URLSearchParams(formData).toString();
+      }
+    });
+  }
 });
