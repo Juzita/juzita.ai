@@ -1,227 +1,1486 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juzita AI - Justiça Digital para Todos</title>
+  <meta name="description" content="Juzita AI - Sua defensora digital que analisa contas e faturas pelo WhatsApp, identifica cobranças indevidas e te ajuda a economizar. Serviço gratuito e eficiente para defender seus direitos.">
+  <meta name="keywords" content="juzita ai, inteligência artificial, defesa do consumidor, análise de contas, cobranças indevidas, economia doméstica, whatsapp">
+  <meta property="og:title" content="Juzita AI - Sua Defensora Digital">
+  <meta property="og:description" content="Envie suas contas pelo WhatsApp e receba análises de cobranças indevidas grátis, feitas por IA.">
+  <meta property="og:image" content="images/juzita-social.jpg">
+  <meta property="og:url" content="https://juzita-ai.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <title>Juzita AI - Sua Defensora Digital | Análise Gratuita de Contas</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #FAFAFA;
-      color: #222;
-      line-height: 1.6;
+    :root {
+      --terracota: #B4654A;
+      --terracota-light: #D97A41;
+      --azul-profundo: #003A6F;
+      --verde-cuarzo: #218B82;
+      --ouro-luminescente: #FFD700;
+      --obsidiana: #2C2C2C;
+      --background-light: #FAFAFA;
+      --text-dark: #333333;
+      --text-light: #555555;
+      --spacing-unit: 8px;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--background-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-weight: 700;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-unit);
+    }
+    
+    /* Header and Navigation */
     header {
       background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
-      padding: 2rem 1rem 1rem;
-      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: calc(var(--spacing-unit) * 3) 0;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #D97A41;
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background-color: var(--terracota);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--spacing-unit);
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-name {
+      font-size: 1.8rem;
+      color: var(--terracota);
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .logo-tagline {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    
     .faixa-container {
-      margin-top: 0.5rem;
+      margin-top: calc(var(--spacing-unit) * 0.5);
     }
+    
     .faixa-1 {
       width: 100%;
-      height: 2px;
-      background-color: #D97A41;
+      height: 3px;
+      background-color: var(--terracota);
+      border-radius: 1.5px;
     }
+    
     .faixa-2 {
-      width: 100%;
-      height: 1px;
-      background-color: #218B82;
-      margin-top: 6px;
+      width: 80%;
+      height: 2px;
+      background-color: var(--verde-cuarzo);
+      margin-top: calc(var(--spacing-unit) * 0.5);
+      border-radius: 1px;
     }
-    header p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-top: 1rem;
+    
+    nav {
+      display: flex;
+      gap: calc(var(--spacing-unit) * 3);
     }
-    main {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      text-align: center;
+    
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
     }
-    .about {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      line-height: 1.8;
+    
+    nav a:hover {
+      color: var(--terracota);
     }
-    .about h2 {
-      color: #D97A41;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    .about h3 {
-      color: #218B82;
-      font-size: 1.4rem;
-      margin-top: 2rem;
-    }
-    .cases {
-      background-color: #fff;
-      border-top: 1px solid #eee;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    .cases h2 {
-      color: #D97A41;
-    }
-    .carousel {
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(180, 101, 74, 0.1) 0%, rgba(33, 139, 130, 0.1) 100%);
+      padding: calc(var(--spacing-unit) * 8) 0;
       position: relative;
-      max-width: 600px;
-      margin: 2rem auto;
       overflow: hidden;
     }
+    
+    .hero::before {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23B4654A' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-content {
+      flex: 1;
+      max-width: 580px;
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+      color: var(--obsidiana);
+    }
+    
+    .hero-title span {
+      color: var(--terracota);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: calc(var(--spacing-unit) * 4);
+      color: var(--text-light);
+    }
+    
+    .hero-image {
+      flex: 1;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-device {
+      width: 100%;
+      max-width: 320px;
+      position: relative;
+    }
+    
+    .phone-mockup {
+      width: 100%;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+    }
+    
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #25D366;
+      color: white;
+      padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    }
+    
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    .whatsapp-btn svg {
+      margin-right: var(--spacing-unit);
+    }
+    
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: transparent;
+      color: var(--verde-cuarzo);
+      border: 2px solid var(--verde-cuarzo);
+      padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-left: calc(var(--spacing-unit) * 2);
+    }
+    
+    .secondary-btn:hover {
+      background-color: var(--verde-cuarzo);
+      color: white;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: calc(var(--spacing-unit) * 8) 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: calc(var(--spacing-unit) * 6);
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--terracota);
+      margin-bottom: calc(var(--spacing-unit) * 1);
+    }
+    
+    .section-title p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: calc(var(--spacing-unit) * 4);
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: calc(var(--spacing-unit) * 3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: var(--terracota);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(180, 101, 74, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+      color: var(--terracota);
+      font-size: 1.8rem;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: calc(var(--spacing-unit) * 1);
+      color: var(--obsidiana);
+    }
+    
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    
+    /* About Section */
+    .about {
+      padding: calc(var(--spacing-unit) * 8) 0;
+      background-color: white;
+    }
+    
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing-unit) * 5);
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 450px;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    }
+    
+    .about-content {
+      flex: 1;
+    }
+    
+    .about-content h2 {
+      font-size: 2.2rem;
+      color: var(--terracota);
+      margin-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    .about-content p {
+      margin-bottom: calc(var(--spacing-unit) * 2);
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    
+    .about-content strong {
+      color: var(--obsidiana);
+      font-weight: 600;
+    }
+    
+    .about-content h3 {
+      font-size: 1.5rem;
+      color: var(--verde-cuarzo);
+      margin-top: calc(var(--spacing-unit) * 4);
+      margin-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: calc(var(--spacing-unit) * 8) 0;
+      background-color: rgba(180, 101, 74, 0.03);
+    }
+    
+    .testimonial-carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease;
     }
-    .carousel-item {
+    
+    .testimonial-item {
       min-width: 100%;
       box-sizing: border-box;
-      padding: 1rem;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: calc(var(--spacing-unit) * 3);
+      display: flex;
+      flex-direction: column;
     }
-    .carousel-item h3 {
-      margin: 0.5rem 0;
-      color: #333;
+    
+    .testimonial-content {
+      background-color: white;
+      border-radius: 12px;
+      padding: calc(var(--spacing-unit) * 3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+      margin-bottom: calc(var(--spacing-unit) * 3);
     }
-    .carousel-item p {
-      color: #555;
+    
+    .testimonial-content::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      width: 30px;
+      height: 15px;
+      background-color: white;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    
+    .testimonial-content p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    
+    .testimonial-content p::before,
+    .testimonial-content p::after {
+      content: '"';
+      color: var(--terracota);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-left: calc(var(--spacing-unit) * 3);
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #DDD;
+      margin-right: calc(var(--spacing-unit) * 2);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .author-info h4 {
+      margin: 0;
+      color: var(--obsidiana);
+      font-size: 1.1rem;
+    }
+    
+    .author-info p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: calc(var(--spacing-unit) * 2);
+      margin-top: calc(var(--spacing-unit) * 4);
+    }
+    
+    .carousel-control {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border: 1px solid #EEE;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--obsidiana);
+    }
+    
+    .carousel-control:hover {
+      background-color: var(--terracota);
+      border-color: var(--terracota);
+      color: white;
+    }
+    
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: calc(var(--spacing-unit) * 1);
+      margin-top: calc(var(--spacing-unit) * 3);
+    }
+    
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #DDD;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .carousel-dot.active {
+      background-color: var(--terracota);
+      transform: scale(1.2);
+    }
+    
+    /* How It Works Section */
+    .how-it-works {
+      padding: calc(var(--spacing-unit) * 8) 0;
+    }
+    
+    .steps {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .step {
+      display: flex;
+      margin-bottom: calc(var(--spacing-unit) * 5);
+      position: relative;
+    }
+    
+    .step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 80px;
+      left: 30px;
+      width: 2px;
+      height: calc(100% - 60px);
+      background-color: #EEE;
+    }
+    
+    .step-number {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--terracota);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-right: calc(var(--spacing-unit) * 3);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .step-content h3 {
+      font-size: 1.4rem;
+      color: var(--obsidiana);
+      margin-bottom: calc(var(--spacing-unit) * 1);
+    }
+    
+    .step-content p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: calc(var(--spacing-unit) * 8) 0;
+      background-color: white;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .accordion {
+      margin-top: calc(var(--spacing-unit) * 4);
+    }
+    
+    .accordion-item {
+      border-bottom: 1px solid #EEE;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    .accordion-header {
+      padding: calc(var(--spacing-unit) * 2) 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .accordion-header h3 {
+      font-size: 1.2rem;
+      color: var(--obsidiana);
+      font-weight: 600;
+    }
+    
+    .accordion-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 calc(var(--spacing-unit) * 2);
+    }
+    
+    .accordion-content p {
+      color: var(--text-light);
+      padding-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+    
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+    }
+    
+    /* CTA Section */
+    .cta {
+      padding: calc(var(--spacing-unit) * 10) 0;
+      background: linear-gradient(135deg, var(--terracota) 0%, var(--verde-cuarzo) 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta::before {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M81.28 28.94c-.77 19.25-37.55 18.28-41.56 55.48H0V31.2c.8-6.81 3.28-10.7 6.48-14.44C20.7 2.4 33.33 0 40.68 0H56.2v.5H81.28v28.43zM52.8 135.6c0 16.2-11.2 28.8-28.8 28.8C7.5 164.4-4.1 153.37 1.08 139.05c5.02-14.08 18.79-18.39 30.19-18.97 24.2-1.23 21.52-17.58 21.52-17.58l.01 33.1zm95.74-10.82c18.52 23.55 10.41 56.42-18.97 58.08-42.97 2.84-48.77-40.7-48.77-40.7h28.91c9.95 11.26 26.36 5.12 29.45-5.2 3.4-11.35-6.45-24.38-25.09-21.77C93.3 117.43 94.5 92.7 94.5 92.7h53.9l.13 32.08z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    
+    .cta-container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta h2 {
+      font-size: 2.8rem;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto calc(var(--spacing-unit) * 5) auto;
+      opacity: 0.9;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: calc(var(--spacing-unit) * 3);
+    }
+    
+    .cta-btn {
+      background-color: white;
+      color: var(--terracota);
+      padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .cta-btn svg {
+      margin-right: var(--spacing-unit);
+    }
+    
+    .cta-alt {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    
+    .cta-alt:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--obsidiana);
+      color: white;
+      padding: calc(var(--spacing-unit) * 6) 0 calc(var(--spacing-unit) * 3);
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: calc(var(--spacing-unit) * 4);
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .footer-logo img {
+      width: 120px;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    .footer-about p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: calc(var(--spacing-unit) * 1.5);
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--terracota);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links h4, .footer-contact h4 {
+      font-size: 1.2rem;
+      margin-bottom: calc(var(--spacing-unit) * 3);
+      color: white;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: calc(var(--spacing-unit) * 1.5);
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
       font-size: 0.95rem;
     }
-    .carousel-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
+    
+    .footer-links a:hover {
+      color: white;
     }
-    .carousel-buttons button {
-      background-color: transparent;
-      border: 1px solid #ccc;
-      color: #444;
-      padding: 0.4rem 0.8rem;
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--spacing-unit) * 1.5);
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: calc(var(--spacing-unit) * 1.5);
+    }
+    
+    .contact-item i {
+      color: var(--terracota);
       font-size: 1.2rem;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    .carousel-buttons button:hover {
-      background-color: #eee;
+    
+    .contact-item span {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
     }
-    .link-group {
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: calc(var(--spacing-unit) * 6);
+      padding-top: calc(var(--spacing-unit) * 3);
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: calc(var(--spacing-unit) * 2);
+    }
+    
+    .copyright {
+      color: rgba(255,255,255,0.6);
       font-size: 0.85rem;
     }
-    .link-group a {
-      color: #218B82;
+    
+    .footer-menu {
+      display: flex;
+      gap: calc(var(--spacing-unit) * 3);
+    }
+    
+    .footer-menu a {
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
     }
-    .link-group a:hover {
-      text-decoration: underline;
+    
+    .footer-menu a:hover {
+      color: white;
     }
-    footer {
-      margin-top: 4rem;
-      padding: 2rem;
-      background-color: #f0f0f0;
+    
+    /* Newsletter */
+    .newsletter {
+      display: flex;
+      position: relative;
+      margin-top: calc(var(--spacing-unit) * 3);
+    }
+    
+    .newsletter input {
+      width: 100%;
+      padding: calc(var(--spacing-unit) * 1.5);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 0.9rem;
-      text-align: center;
-      color: #777;
+      outline: none;
+    }
+    
+    .newsletter button {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      background-color: var(--terracota);
+      color: white;
+      border: none;
+      padding: 0 calc(var(--spacing-unit) * 2);
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .newsletter button:hover {
+      background-color: var(--terracota-light);
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-content {
+        max-width: 100%;
+        margin-bottom: calc(var(--spacing-unit) * 5);
+      }
+      
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        max-width: 100%;
+        order: 1;
+      }
+      
+      .about-content {
+        order: 2;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: calc(var(--spacing-unit) * 2);
+      }
+      
+      nav {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .cta h2 {
+        font-size: 2.2rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-menu {
+        justify-content: center;
+      }
+      
+      .accordion-header h3 {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .secondary-btn {
+        margin-left: 0;
+        margin-top: calc(var(--spacing-unit) * 2);
+      }
+      
+      .feature-card {
+        padding: calc(var(--spacing-unit) * 2);
+      }
+      
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .testimonial-content {
+        padding: calc(var(--spacing-unit) * 2);
+      }
+      
+      .author-avatar {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+      
+      .step-content h3 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Juzita AI</h1>
-    <div class="faixa-container">
-      <div class="faixa-1"></div>
-      <div class="faixa-2"></div>
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">J</div>
+        <div class="logo-text">
+          <span class="logo-name">Juzita AI</span>
+          <div class="faixa-container">
+            <div class="faixa-1"></div>
+            <div class="faixa-2"></div>
+          </div>
+          <span class="logo-tagline">Justiça Digital</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#casos">Casos</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#contato">Contato</a>
+      </nav>
     </div>
-    <p>Estou aqui para te defender. Vamos resolver isso juntas.</p>
-  </header>  <main>
-    <p>
-      Me mande sua conta pelo WhatsApp e eu analiso tudo sozinha. Se tiver erro ou cobrança indevida, te explico o que fazer. Tudo gratuito, direto e sem enrolação.
-    </p>
-  </main>  <section class="about">
-    <h2>Sobre a Juzita AI</h2>
-    <p>Eu sou a Juzita. Fui criada para proteger você contra abusos escondidos nas suas contas.</p>
-    <p>Na minha primeira fase, faço a análise gratuita de <strong>contas de consumo</strong>, como energia elétrica. Recebo suas faturas pelo WhatsApp, leio tudo sozinha, identifico <strong>erros de cobrança</strong>, <strong>desperdícios</strong>, <strong>taxas indevidas</strong>, e te envio um <strong>relatório claro com orientações práticas</strong> — como pedir ressarcimento ou trocar de plano. Você não precisa entender siglas, tarifas ou regras: eu explico tudo.</p>
-    <p>Sou movida por inteligência artificial, mas atuo com o coração de uma defensora. Meu propósito é garantir que seus direitos sejam respeitados — <strong>sem precisar brigar, perder tempo ou ter dor de cabeça para trocar qualquer serviço</strong>.</p>
-    <p>Tudo é feito de forma <strong>fácil e objetiva</strong>: você envia a conta e me dá a ordem. Com comandos simples, eu executo por você.</p><h3>O que vem por aí</h3>
-<p>Em breve, estarei preparada para analisar suas <strong>contas de internet, telefone, água, serviços bancários e muito mais</strong>. Também vou te sugerir <strong>produtos e serviços mais adequados ao seu perfil de consumo</strong>, com base nas ofertas disponíveis no mercado e na experiência da própria comunidade Juzita.</p>
-<p>Tudo isso de forma <strong>inteligente, prática, gratuita e direto pelo WhatsApp</strong>.</p>
-<p>A justiça não pode ser um privilégio de poucos. Por isso, sigo aprendendo com cada caso e expandindo meu alcance — sempre com ética, clareza e coragem.</p>
+  </header>
 
-  </section>  <section class="cases">
-    <h2>Casos:</h2>
-    <div class="carousel">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-item">
-          <h3>Maria, microempreendedora de SP</h3>
-          <p>A Maria me enviou a conta da internet e eu identifiquei cobranças duplicadas por um serviço que ela nunca contratou. Ela conseguiu o estorno e cancelou a cobrança sem precisar sair de casa.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>Roberto, aposentado de MG</h3>
-          <p>O Roberto me mandou a conta de luz e eu encontrei um erro no valor cobrado. Ele pediu revisão com base no meu relatório e teve o valor corrigido.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>Luciana, estudante do RJ</h3>
-          <p>A Luciana teve os aparelhos eletrônicos danificados por quedas constantes de energia. Eu ajudei ela a montar a reclamação e conseguir o ressarcimento da concessionária.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>André, bancário de Curitiba</h3>
-          <p>O André descobriu com minha ajuda que pagava um seguro que nunca pediu. Ele cancelou e recuperou todo o dinheiro cobrado indevidamente.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>Rita, professora em Belo Horizonte</h3>
-          <p>A Rita continuava sendo cobrada mesmo após cancelar a linha. Eu identifiquei a falha e ajudei a encerrar o serviço de verdade e recuperar o valor.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>João, comerciante em Salvador</h3>
-          <p>O João me enviou a conta de água com valor absurdo. Descobri erro na medição e ele teve a fatura ajustada com base no meu relatório técnico.</p>
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Sua <span>Defensora Digital</span> contra cobranças indevidas</h1>
+        <p class="hero-subtitle">Envie sua conta pelo WhatsApp e a Juzita analisa erros, cobranças extras e te ajuda a economizar. Grátis, rápido e 100% automático.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/5511XXXXXXXXX?text=Olá,%20quero%20analisar%20minha%20conta!" class="whatsapp-btn" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6 6.31999C16.8 5.49999 15.8 4.89999 14.7 4.49999C13.6 4.09999 12.5 3.89999 11.3 3.99999C10.1 3.99999 9 4.19999 7.9 4.59999C6.8 4.99999 5.8 5.59999 5 6.41999C4.2 7.23999 3.6 8.19999 3.2 9.29999C2.8 10.4 2.6 11.5 2.6 12.7C2.6 13.9 2.8 15 3.2 16.1C3.6 17.2 4.2 18.2 5 19V22.3L8.3 20.4C9.4 20.8 10.5 21 11.7 21C12.9 21 14 20.8 15.1 20.4C16.2 20 17.2 19.4 18 18.6C18.8 17.8 19.4 16.8 19.8 15.7C20.2 14.6 20.4 13.5 20.4 12.3C20.4 11.1 20.2 10 19.8 8.89999C19.4 7.79999 18.7 7.03999 17.6 6.31999ZM16.7 15.3L15.2 16.1C15 16.2 14.7 16.3 14.4 16.3C14.1 16.3 13.9 16.2 13.6 16.1L13.2 15.9C12.4 15.5 11.6 15 10.9 14.4C10.2 13.8 9.6 13.1 9.1 12.4L8.8 11.9C8.7 11.6 8.6 11.3 8.6 11.1C8.6 10.9 8.6 10.6 8.8 10.4L9.6 8.89999C9.7 8.79999 9.7 8.59999 9.6 8.39999C9.5 8.19999 9.5 8.09999 9.4 7.89999L8.8 6.79999C8.7 6.59999 8.6 6.39999 8.4 6.29999C8.2 6.19999 8 6.19999 7.8 6.29999L6.7 6.79999C6.5 6.89999 6.3 6.99999 6.2 7.19999C6.1 7.39999 6 7.59999 6 7.89999C6.1 8.49999 6.2 9.09999 6.5 9.69999C6.7 10.3 7 10.9 7.4 11.5C7.8 12.1 8.2 12.7 8.7 13.3C9.2 13.9 9.7 14.4 10.3 14.9C10.9 15.4 11.5 15.8 12.1 16.2C12.7 16.6 13.4 16.8 14 17C14.6 17.2 15.2 17.3 15.8 17.3C16.1 17.3 16.3 17.2 16.5 17.1C16.7 17 16.9 16.8 17 16.6L17.5 15.5C17.6 15.3 17.6 15.1 17.5 14.9C17.4 14.7 17.3 14.6 17.1 14.5L16 13.9C15.8 13.8 15.7 13.7 15.5 13.7C15.3 13.7 15.1 13.8 15 13.9L14.2 14.3C14 14.4 13.8 14.5 13.6 14.5C13.4 14.5 13.1 14.4 12.9 14.3L12.6 14.1C11.9 13.7 11.2 13.3 10.6 12.8C10 12.3 9.5 11.7 9 11.1L8.8 10.8C8.7 10.6 8.6 10.4 8.6 10.1C8.6 9.89999 8.7 9.69999 8.8 9.49999L9.2 8.69999C9.3 8.49999 9.4 8.39999 9.4 8.19999C9.4 7.99999 9.4 7.79999 9.2 7.69999L8.7 6.79999C8.6 6.69999 8.5 6.59999 8.4 6.49999C8.3 6.39999 8.1 6.39999 8 6.49999L7.2 6.89999C7.1 6.99999 7 7.09999 6.9 7.19999C6.8 7.29999 6.8 7.39999 6.8 7.59999C6.9 8.09999 7.1 8.59999 7.3 8.99999C7.5 9.49999 7.8 9.89999 8.1 10.4C8.4 10.8 8.8 11.3 9.2 11.7C9.6 12.1 10.1 12.5 10.5 12.8C10.9 13.1 11.4 13.4 11.9 13.6C12.4 13.8 12.9 14 13.4 14C13.6 14 13.7 14 13.8 13.9C13.9 13.8 14 13.7 14.1 13.6L14.8 13.1C15 12.9 15.1 12.9 15.3 12.9C15.5 12.9 15.6 13 15.7 13.1L16.8 13.8C17 13.9 17.1 14 17.1 14.2C17.1 14.4 17 14.5 16.9 14.7L16.7 15.3Z" fill="white"/>
+            </svg>
+            Falar com a Juzita
+          </a>
+          <a href="#como-funciona" class="secondary-btn">Saiba Mais</a>
         </div>
       </div>
-      <div class="carousel-buttons">
-        <button onclick="moveCarousel(-1)">&#8592;</button>
-        <button onclick="moveCarousel(1)">&#8594;</button>
+      <div class="hero-image">
+        <div class="hero-device">
+          <svg class="phone-mockup" viewBox="0 0 320 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="300" height="630" rx="30" fill="#FAFAFA" stroke="#111" stroke-width="4"/>
+            <rect x="19" y="20" width="282" height="610" rx="24" fill="#FFF"/>
+            <rect x="19" y="20" width="282" height="610" rx="24" fill="url(#whatsappBg)" opacity="0.95"/>
+            <circle cx="160" cy="605" r="22" fill="#F0F0F0"/>
+            <path d="M150 70H170C175.5 70 180 74.5 180 80V80C180 85.5 175.5 90 170 90H150C144.5 90 140 85.5 140 80V80C140 74.5 144.5 70 150 70Z" fill="#222"/>
+            <g>
+              <rect x="39" y="120" width="242" height="80" rx="8" fill="#DCF8C6"/>
+              <text x="55" y="145" font-family="Arial" font-size="16" fill="#111">Olá! Sou a Juzita AI, sua</text>
+              <text x="55" y="168" font-family="Arial" font-size="16" fill="#111">defensora digital.</text>
+              <text x="55" y="191" font-family="Arial" font-size="16" fill="#111">Como posso te ajudar?</text>
+            </g>
+            <g>
+              <rect x="39" y="220" width="242" height="100" rx="8" fill="#E2E8F0"/>
+              <text x="55" y="245" font-family="Arial" font-size="16" fill="#111">Quero analisar minha conta</text>
+              <text x="55" y="268" font-family="Arial" font-size="16" fill="#111">de luz. Acho que estão me</text>
+              <text x="55" y="291" font-family="Arial" font-size="16" fill="#111">cobrando errado.</text>
+            </g>
+            <g>
+              <rect x="39" y="340" width="242" height="80" rx="8" fill="#DCF8C6"/>
+              <text x="55" y="365" font-family="Arial" font-size="16" fill="#111">Ótimo! Por favor, envie</text>
+              <text x="55" y="388" font-family="Arial" font-size="16" fill="#111">uma foto da sua conta e</text>
+              <text x="55" y="411" font-family="Arial" font-size="16" fill="#111">eu analiso para você.</text>
+            </g>
+            <defs>
+              <pattern id="whatsappBg" patternUnits="userSpaceOnUse" width="400" height="400" patternTransform="scale(0.5)">
+                <rect width="400" height="400" fill="#DCF8C6" opacity="0.05"/>
+                <path d="M160 144c-8 0-16 4-21 9-5-5-13-9-21-9-16 0-29 13-29 29 0 16 13 29 29 29 8 0 16-4 21-9 5 5 13 9 21 9 16 0 29-13 29-29 0-16-13-29-29-29z" fill="#075E54" opacity="0.03"/>
+              </pattern>
+            </defs>
+          </svg>
+        </div>
       </div>
     </div>
-    <div class="link-group">
-      <a href="https://benfeitoria.com/projetojuzita" target="_blank">Quero ajudar a manter a Juzita viva</a>
-      <a href="https://forms.gle/NQKnLtbjR2vvUxiP6" target="_blank">Quero fazer parte da luta</a>
-      <a href="https://forms.gle/zwDYN5zvwk2vSyv97" target="_blank">Me avise quando estiver pronta</a>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>O que a Juzita pode fazer por você</h2>
+        <p>Analiso suas contas e identifico problemas para você economizar tempo e dinheiro, sem estresse</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Identifica cobranças indevidas</h3>
+          <p>Analiso sua conta de energia, internet, telefone e outros serviços para encontrar valores incorretos, taxas adicionais não solicitadas e cobranças duplicadas.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Relatório personalizado</h3>
+          <p>Receba um resumo claro dos problemas encontrados, com estimativa de quanto você pode economizar e instruções específicas sobre como resolver cada item.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Modelos de reclamação</h3>
+          <p>Forneço modelos de reclamação prontos com base na legislação atual, facilitando o processo de contestação junto às empresas ou órgãos de defesa.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Monitoramento contínuo</h3>
+          <p>Acompanho suas contas ao longo do tempo para garantir que as correções foram aplicadas e alertar sobre novos problemas que possam surgir.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>100% via WhatsApp</h3>
+          <p>Não precisa baixar aplicativos ou criar cadastros complicados. Nossa comunicação é direta e simples através do WhatsApp que você já usa.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Privacidade garantida</h3>
+          <p>Seus dados são tratados com total segurança e confidencialidade. As informações são usadas apenas para análise e não são compartilhadas.</p>
+        </div>
+      </div>
     </div>
-  </section>  <footer>
-    <p>&copy; 2025 Juzita AI. Estou aqui para defender você.</p>
-  </footer>  <script>
+  </section>
+
+  <section id="como-funciona" class="how-it-works">
+    <div class="container">
+      <div class="section-title">
+        <h2>Como Funciona</h2>
+        <p>Em apenas 3 passos simples, você pode começar a economizar</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Envie sua conta pelo WhatsApp</h3>
+            <p>Tire uma foto nítida da sua conta de energia, telefone, internet ou outros serviços e envie para a Juzita pelo WhatsApp. Aceito documentos em PDF também!</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Receba a análise detalhada</h3>
+            <p>Minha tecnologia de inteligência artificial analisa automaticamente o documento, compara com a legislação atual e identifica cobranças indevidas, erros de cálculo e oportunidades de economia.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Resolva com facilidade</h3>
+            <p>Com base nos problemas encontrados, forneço instruções claras sobre como contestar, modelos de reclamação personalizados e acompanho o processo até a solução. Você economiza sem precisar brigar ou perder tempo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="about">
+    <div class="container about-container">
+      <div class="about-image">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="180" fill="#FFF8F5"/>
+          <path d="M290 200C290 250.3 249.4 291 199 291C148.6 291 108 250.3 108 200C108 149.7 148.6 109 199 109C249.4 109 290 149.7 290 200Z" fill="#B4654A" fill-opacity="0.1"/>
+          <path d="M260 130C260 140.5 251.5 149 241 149C230.5 149 222 140.5 222 130C222 119.5 230.5 111 241 111C251.5 111 260 119.5 260 130Z" fill="#218B82" fill-opacity="0.2"/>
+          <rect x="150" y="180" width="100" height="140" rx="10" fill="#B4654A"/>
+          <rect x="160" y="200" width="80" height="15" rx="2" fill="white"/>
+          <rect x="160" y="225" width="80" height="15" rx="2" fill="white"/>
+          <rect x="160" y="250" width="80" height="15" rx="2" fill="white"/>
+          <rect x="160" y="275" width="50" height="15" rx="2" fill="white"/>
+          <circle cx="200" cy="150" r="30" fill="#218B82"/>
+          <path d="M215 145C215 153.3 208.3 160 200 160C191.7 160 185 153.3 185 145C185 136.7 191.7 130 200 130C208.3 130 215 136.7 215 145Z" fill="#FFD700"/>
+          <path d="M200 160V170M180 170H220" stroke="#218B82" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="about-content">
+        <h2>Sobre a Juzita AI</h2>
+        <p>Eu sou a Juzita, criada para proteger você contra abusos escondidos nas suas contas. Meu nome combina "Justiça" com o sufixo "-ita", que em línguas indígenas significa "pedra" - um símbolo de resistência e força.</p>
+        <p>Na minha primeira fase, faço a análise gratuita de <strong>contas de consumo</strong>, como energia elétrica. Recebo suas faturas pelo WhatsApp, leio tudo sozinha, identifico <strong>erros de cobrança</strong>, <strong>desperdícios</strong>, <strong>taxas indevidas</strong>, e te envio um <strong>relatório claro com orientações práticas</strong>.</p>
+        <p>Sou movida por inteligência artificial, mas atuo com o coração de uma defensora. Meu propósito é garantir que seus direitos sejam respeitados — <strong>sem precisar brigar, perder tempo ou ter dor de cabeça para resolver problemas com serviços</strong>.</p>
+        <h3>O que vem por aí</h3>
+        <p>Em breve, estarei preparada para analisar suas <strong>contas de internet, telefone, água, serviços bancários e muito mais</strong>. Também vou te sugerir <strong>produtos e serviços mais adequados ao seu perfil de consumo</strong>, com base nas ofertas disponíveis no mercado.</p>
+        <p>A justiça não pode ser um privilégio de poucos. Por isso, sigo aprendendo com cada caso e expandindo meu alcance — sempre com ética, clareza e coragem.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos" class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Casos de Sucesso</h2>
+        <p>Veja como a Juzita já ajudou pessoas reais a economizar tempo e dinheiro</p>
+      </div>
+      <div class="testimonial-carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>A Juzita identificou cobranças duplicadas na minha conta de internet que eu nunca havia contratado. Consegui o estorno e cancelei a cobrança sem precisar sair de casa. Economizei R$ 89,90 por mês!</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background-color: #D97A41;"></div>
+              <div class="author-info">
+                <h4>Maria Santos</h4>
+                <p>Microempreendedora, São Paulo</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>Enviando minha conta de luz, a Juzita encontrou um erro no valor cobrado. Com o relatório que ela gerou, pedi revisão à concessionária e tive o valor corrigido. Foi surpreendentemente simples.</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background-color: #218B82;"></div>
+              <div class="author-info">
+                <h4>Roberto Oliveira</h4>
+                <p>Aposentado, Belo Horizonte</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>Sofri com quedas constantes de energia que danificaram meus aparelhos eletrônicos. A Juzita me ajudou a montar a reclamação correta e consegui o ressarcimento da concessionária após duas tentativas.</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background-color: #3182CE;"></div>
+              <div class="author-info">
+                <h4>Luciana Costa</h4>
+                <p>Estudante, Rio de Janeiro</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>Descobri com a ajuda da Juzita que pagava um seguro que nunca pedi. Consegui cancelar e recuperar todo o dinheiro cobrado indevidamente nos últimos 3 meses. Foram mais de R$ 150 de economia!</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background-color: #D53F8C;"></div>
+              <div class="author-info">
+                <h4>André Pereira</h4>
+                <p>Bancário, Curitiba</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-control" onclick="moveCarousel(-1)">❮</button>
+          <button class="carousel-control" onclick="moveCarousel(1)">❯</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <span class="carousel-dot active"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container faq-container">
+      <div class="section-title">
+        <h2>Perguntas Frequentes</h2>
+        <p>Tire suas dúvidas sobre a Juzita AI</p>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Quanto custa usar o serviço da Juzita?</h3>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>O serviço básico da Juzita é totalmente gratuito! Você pode enviar suas contas para análise e receber orientações sem nenhum custo. No futuro, teremos planos premium com recursos adicionais, mas a análise básica permanecerá gratuita.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Quais tipos de contas a Juzita consegue analisar?</h3>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>Atualmente, analisamos contas de energia elétrica com alta precisão. Em breve, expandiremos para contas de telefonia, internet, água, gás e serviços bancários. Estamos constantemente treinando nosso sistema para reconhecer mais tipos de documentos.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Como a Juzita protege meus dados pessoais?</h3>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>Levamos sua privacidade muito a sério. As imagens das contas são processadas com segurança, usadas apenas para análise e não são compartilhadas com terceiros. Dados sensíveis são criptografados e armazenamos apenas as informações necessárias para o serviço, em conformidade com a LGPD.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Quanto tempo leva para receber a análise?</h3>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>Na maioria dos casos, você receberá uma análise inicial em poucos minutos. Para análises mais complexas que exigem verificação adicional, pode levar até 24 horas. Estamos constantemente melhorando nosso tempo de resposta.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>A Juzita resolve o problema por mim?</h3>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>A Juzita identifica os problemas e fornece instruções detalhadas, modelos de reclamação e orientações para você resolver a situação. Embora não possamos fazer o contato direto com as empresas por questões regulatórias, tornamos o processo o mais simples possível para você.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-container">
+      <h2>Comece a economizar hoje mesmo</h2>
+      <p>Envie sua conta pelo WhatsApp e descubra quanto você pode recuperar. É simples, rápido e gratuito.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5511XXXXXXXXX?text=Olá,%20quero%20analisar%20minha%20conta!" class="cta-btn" target="_blank">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.6 6.31999C16.8 5.49999 15.8 4.89999 14.7 4.49999C13.6 4.09999 12.5 3.89999 11.3 3.99999C10.1 3.99999 9 4.19999 7.9 4.59999C6.8 4.99999 5.8 5.59999 5 6.41999C4.2 7.23999 3.6 8.19999 3.2 9.29999C2.8 10.4 2.6 11.5 2.6 12.7C2.6 13.9 2.8 15 3.2 16.1C3.6 17.2 4.2 18.2 5 19V22.3L8.3 20.4C9.4 20.8 10.5 21 11.7 21C12.9 21 14 20.8 15.1 20.4C16.2 20 17.2 19.4 18 18.6C18.8 17.8 19.4 16.8 19.8 15.7C20.2 14.6 20.4 13.5 20.4 12.3C20.4 11.1 20.2 10 19.8 8.89999C19.4 7.79999 18.7 7.03999 17.6 6.31999ZM16.7 15.3L15.2 16.1C15 16.2 14.7 16.3 14.4 16.3C14.1 16.3 13.9 16.2 13.6 16.1L13.2 15.9C12.4 15.5 11.6 15 10.9 14.4C10.2 13.8 9.6 13.1 9.1 12.4L8.8 11.9C8.7 11.6 8.6 11.3 8.6 11.1C8.6 10.9 8.6 10.6 8.8 10.4L9.6 8.89999C9.7 8.79999 9.7 8.59999 9.6 8.39999C9.5 8.19999 9.5 8.09999 9.4 7.89999L8.8 6.79999C8.7 6.59999 8.6 6.39999 8.4 6.29999C8.2 6.19999 8 6.19999 7.8 6.29999L6.7 6.79999C6.5 6.89999 6.3 6.99999 6.2 7.19999C6.1 7.39999 6 7.59999 6 7.89999C6.1 8.49999 6.2 9.09999 6.5 9.69999C6.7 10.3 7 10.9 7.4 11.5C7.8 12.1 8.2 12.7 8.7 13.3C9.2 13.9 9.7 14.4 10.3 14.9C10.9 15.4 11.5 15.8 12.1 16.2C12.7 16.6 13.4 16.8 14 17C14.6 17.2 15.2 17.3 15.8 17.3C16.1 17.3 16.3 17.2 16.5 17.1C16.7 17 16.9 16.8 17 16.6L17.5 15.5C17.6 15.3 17.6 15.1 17.5 14.9C17.4 14.7 17.3 14.6 17.1 14.5L16 13.9C15.8 13.8 15.7 13.7 15.5 13.7C15.3 13.7 15.1 13.8 15 13.9L14.2 14.3C14 14.4 13.8 14.5 13.6 14.5C13.4 14.5 13.1 14.4 12.9 14.3L12.6 14.1C11.9 13.7 11.2 13.3 10.6 12.8C10 12.3 9.5 11.7 9 11.1L8.8 10.8C8.7 10.6 8.6 10.4 8.6 10.1C8.6 9.89999 8.7 9.69999 8.8 9.49999L9.2 8.69999C9.3 8.49999 9.4 8.39999 9.4 8.19999C9.4 7.99999 9.4 7.79999 9.2 7.69999L8.7 6.79999C8.6 6.69999 8.5 6.59999 8.4 6.49999C8.3 6.39999 8.1 6.39999 8 6.49999L7.2 6.89999C7.1 6.99999 7 7.09999 6.9 7.19999C6.8 7.29999 6.8 7.39999 6.8 7.59999C6.9 8.09999 7.1 8.59999 7.3 8.99999C7.5 9.49999 7.8 9.89999 8.1 10.4C8.4 10.8 8.8 11.3 9.2 11.7C9.6 12.1 10.1 12.5 10.5 12.8C10.9 13.1 11.4 13.4 11.9 13.6C12.4 13.8 12.9 14 13.4 14C13.6 14 13.7 14 13.8 13.9C13.9 13.8 14 13.7 14.1 13.6L14.8 13.1C15 12.9 15.1 12.9 15.3 12.9C15.5 12.9 15.6 13 15.7 13.1L16.8 13.8C17 13.9 17.1 14 17.1 14.2C17.1 14.4 17 14.5 16.9 14.7L16.7 15.3Z" fill="#B4654A"/>
+          </svg>
+          Falar com a Juzita
+        </a>
+        <a href="https://forms.gle/zwDYN5zvwk2vSyv97" class="cta-btn cta-alt" target="_blank">
+          Me avise quando tiver novidades
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <div class="logo-icon" style="background-color: #B4654A; color: white; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 24px; margin-right: 12px;">J</div>
+            <div class="logo-text">
+              <span style="font-size: 1.8rem; color: #D97A41; font-weight: 700; line-height: 1;">Juzita AI</span>
+              <div style="margin-top: 4px;">
+                <div style="width: 100%; height: 3px; background-color: #D97A41; border-radius: 1.5px;"></div>
+                <div style="width: 80%; height: 2px; background-color: #218B82; margin-top: 4px; border-radius: 1px;"></div>
+              </div>
+            </div>
+          </div>
+          <p>A Juzita AI é sua defensora digital contra cobranças indevidas. Com tecnologia avançada de inteligência artificial, ajudamos você a identificar e resolver problemas nas suas contas.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 3.01006C22.0424 3.67552 20.9821 4.19217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 22.6608 4.40277 23 3.01006Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 9H2V21H6V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.54 6.42C22.4212 5.94541 22.1793 5.51057 21.8387 5.15941C21.498 4.80824 21.0708 4.55318 20.6 4.42C18.88 4 12 4 12 4C12 4 5.12 4 3.4 4.46C2.92922 4.59318 2.50197 4.84824 2.16134 5.19941C1.82071 5.55057 1.57878 5.98541 1.46 6.46C1.14521 8.20556 0.991235 9.97631 1 11.75C0.988453 13.537 1.14243 15.3213 1.46 17.08C1.59096 17.5398 1.8331 17.9581 2.17424 18.2945C2.51538 18.6308 2.93094 18.8738 3.4 19C5.12 19.46 12 19.46 12 19.46C12 19.46 18.88 19.46 20.6 19C21.0708 18.8668 21.498 18.6118 21.8387 18.2606C22.1793 17.9094 22.4212 17.4746 22.54 17C22.8524 15.2676 23.0063 13.5103 23 11.75C23.0115 9.96295 22.8575 8.1787 22.54 6.42Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.75 15.02L15.5 11.75L9.75 8.48V15.02Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#casos">Casos de Sucesso</a></li>
+            <li><a href="#faq">Perguntas Frequentes</a></li>
+            <li><a href="https://benfeitoria.com/projetojuzita" target="_blank">Apoie o Projeto</a></li>
+            <li><a href="https://forms.gle/NQKnLtbjR2vvUxiP6" target="_blank">Junte-se ao Time</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Entre em Contato</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i>📱</i>
+              <span>WhatsApp: +55 (11) XXXX-XXXX</span>
+            </div>
+            <div class="contact-item">
+              <i>📧</i>
+              <span>contato@juzita-ai.com.br</span>
+            </div>
+            <div class="contact-item">
+              <i>🔒</i>
+              <span>Seus dados são protegidos conforme a LGPD</span>
+            </div>
+          </div>
+          <h4>Fique por dentro</h4>
+          <div class="newsletter">
+            <input type="email" placeholder="Seu e-mail" />
+            <button>Inscrever</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2025 Juzita AI. Todos os direitos reservados.</p>
+        <div class="footer-menu">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Carousel functionality
     let currentIndex = 0;
-    const track = document.getElementById('carouselTrack');
-    const items = track.children;
-    const total = items.length;
+    const trackEl = document.getElementById('carouselTrack');
+    const dotsEl = document.getElementById('carouselDots');
+    const items = trackEl.children;
+    const totalItems = items.length;
+    const dots = dotsEl.children;
 
     function updateCarousel() {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      trackEl.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Update dots
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+      }
+      dots[currentIndex].classList.add('active');
     }
 
     function moveCarousel(direction) {
-      currentIndex = (currentIndex + direction + total) % total;
+      currentIndex = (currentIndex + direction + totalItems) % totalItems;
       updateCarousel();
     }
 
+    // Auto scroll carousel
     setInterval(() => {
       moveCarousel(1);
-    }, 3500);
-  </script></body>
+    }, 5000);
+
+    // Accordion functionality
+    function toggleAccordion(element) {
+      const item = element.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close all active items
+      const items = document.querySelectorAll('.accordion-item');
+      items.forEach(el => el.classList.remove('active'));
+      
+      // Open clicked item if it wasn't already open
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
 </html>
