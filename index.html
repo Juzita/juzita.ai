@@ -3,23 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juzita AI - Análise Inteligente de Contas e Defesa do Consumidor</title>
+  <title>Juzita AI | Tecnologia que Defende Seus Direitos</title>
   
-  <!-- Fonts -->
+  <!-- Fontes mais ousadas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --primary: #0056b3;
-      --primary-dark: #004494;
-      --secondary: #00a86b;
-      --accent: #ff5722;
-      --dark: #212529;
-      --light: #f8f9fa;
-      --gray: #6c757d;
-      --light-gray: #e9ecef;
-      --white: #ffffff;
+      /* Paleta de cores mais vibrante e moderna */
+      --primary: #7209b7;        /* Roxo vibrante */
+      --secondary: #4cc9f0;      /* Azul elétrico */
+      --accent: #f72585;         /* Rosa neon */
+      --neutral-dark: #121212;   /* Quase preto */
+      --neutral-light: #f8f9fa;  /* Off-white */
+      --gradient: linear-gradient(90deg, var(--primary), var(--accent));
+      
+      /* Sistema de espaçamento mais preciso */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-xxl: 64px;
+      
+      /* Sistemas de borda */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      
+      /* Sistema de sombras */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
     }
     
     * {
@@ -29,470 +47,319 @@
     }
     
     body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark);
-      background-color: var(--light);
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--neutral-dark);
+      background-color: var(--neutral-light);
       line-height: 1.6;
     }
     
     h1, h2, h3, h4, h5 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
     }
     
     .container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 var(--space-md);
     }
     
-    /* Header & Navigation */
+    /* Header redesenhado e alinhado corretamente */
     header {
-      background-color: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: fixed;
-      width: 100%;
+      background-color: var(--neutral-dark);
+      position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: var(--shadow-md);
     }
     
-    .header-container {
+    .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0;
+      padding: var(--space-md) 0;
+      position: relative;
     }
     
     .logo {
       display: flex;
       align-items: center;
+      gap: var(--space-sm);
       text-decoration: none;
+      z-index: 10;
     }
     
-    .logo-img {
+    .logo-icon {
+      width: 40px;
       height: 40px;
-      margin-right: 10px;
+      background: var(--gradient);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 22px;
+      color: white;
     }
     
     .logo-text {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      color: white;
+      letter-spacing: -0.02em;
     }
     
     .logo-text span {
-      color: var(--secondary);
+      color: var(--accent);
     }
     
     nav ul {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: var(--space-xl);
     }
     
     nav a {
-      color: var(--dark);
+      color: white;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s;
+      position: relative;
+      padding: var(--space-xs);
+      transition: color 0.3s ease;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
     }
     
     nav a:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
     
-    .nav-button {
-      background-color: var(--primary);
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .cta-button {
+      background: var(--gradient);
       color: white;
-      padding: 8px 20px;
-      border-radius: 4px;
+      border: none;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-md);
       font-weight: 600;
-      transition: background-color 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: all 0.3s ease;
+      font-family: 'Space Grotesk', sans-serif;
     }
     
-    .nav-button:hover {
-      background-color: var(--primary-dark);
-      color: white;
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
     
-    /* Hero Section */
+    /* Hero Section redesenhada com elementos mais ousados */
     .hero {
-      padding: 140px 0 80px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: var(--space-xxl) 0;
+      background-color: var(--neutral-dark);
+      color: white;
       position: relative;
       overflow: hidden;
     }
     
-    .hero-container {
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: var(--primary);
+      opacity: 0.3;
+      border-radius: 50%;
+      top: -300px;
+      left: -200px;
+      filter: blur(100px);
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: var(--accent);
+      opacity: 0.2;
+      border-radius: 50%;
+      bottom: -250px;
+      right: -100px;
+      filter: blur(80px);
+    }
+    
+    .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: var(--space-xxl);
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
     
     .hero-content h1 {
-      font-size: 3rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: var(--dark);
-    }
-    
-    .hero-content h1 span {
-      color: var(--primary);
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     
     .hero-content p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: var(--gray);
+      font-size: 1.2rem;
+      margin-bottom: var(--space-xl);
+      opacity: 0.8;
+      max-width: 500px;
     }
     
     .hero-buttons {
       display: flex;
-      gap: 15px;
-    }
-    
-    .primary-button {
-      background-color: var(--primary);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .primary-button:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .secondary-button {
-      background-color: var(--white);
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    .secondary-button:hover {
-      background-color: var(--light-gray);
-      transform: translateY(-2px);
+      gap: var(--space-md);
     }
     
     .hero-image {
       position: relative;
     }
     
-    .hero-image img {
+    .hero-mockup {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      height: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    /* Features Section */
-    .features {
-      padding: 80px 0;
-      background-color: var(--white);
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    .section-title h2 {
-      font-size: 2.5rem;
-      color: var(--dark);
-      margin-bottom: 15px;
-    }
-    
-    .section-title p {
-      font-size: 1.1rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    
-    .feature-card {
-      background-color: var(--light);
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .feature-icon {
-      height: 60px;
-      width: 60px;
-      background-color: rgba(0, 86, 179, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      color: var(--primary);
-      font-size: 24px;
-    }
-    
-    .feature-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      color: var(--dark);
-    }
-    
-    .feature-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-    
-    /* How It Works */
-    .how-it-works {
-      padding: 80px 0;
-      background-color: var(--light);
-    }
-    
-    .steps-container {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .step {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .step:last-child {
-      margin-bottom: 0;
-    }
-    
-    .step-number {
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      position: relative;
-    }
-    
-    .steps-line {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 25px;
-      width: 2px;
-      background-color: var(--light-gray);
-      z-index: 0;
-    }
-    
-    .step-content {
-      background-color: var(--white);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      flex: 1;
-    }
-    
-    .step-content h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-    
-    .step-content p {
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-    
-    /* Testimonials */
-    .testimonials {
-      padding: 80px 0;
-      background-color: var(--primary);
-      color: white;
-    }
-    
-    .testimonials .section-title h2,
-    .testimonials .section-title p {
-      color: white;
-    }
-    
-    .testimonial-slider {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .testimonial {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 8px;
-      text-align: center;
-    }
-    
-    .testimonial-content {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    
-    .testimonial-author {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-    
-    .testimonial-company {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-top: 5px;
-    }
-    
-    /* Stats Section */
-    .stats {
-      padding: 80px 0;
-      background-color: var(--white);
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      text-align: center;
-    }
-    
-    .stat-item h3 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-    
-    .stat-item p {
-      color: var(--gray);
-      font-size: 1rem;
-    }
-    
-    /* CTA Section */
-    .cta {
-      padding: 80px 0;
-      background: linear-gradient(135deg, var(--primary) 0%, #2b32b2 100%);
-      color: white;
-      text-align: center;
-    }
-    
-    .cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    
-    .cta p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      opacity: 0.9;
-    }
-    
-    .cta-button {
+
+    /* Formulário integrado com os links fornecidos */
+    .contact-form {
       background-color: white;
-      color: var(--primary);
-      padding: 15px 30px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-lg);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: var(--space-sm);
+      font-weight: 500;
+      color: var(--neutral-dark);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: var(--space-md);
+      border: 1px solid #ddd;
+      border-radius: var(--radius-sm);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
       transition: all 0.3s ease;
     }
     
-    .cta-button:hover {
-      background-color: var(--light-gray);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(114, 9, 183, 0.1);
     }
     
-    /* Footer */
-    footer {
-      background-color: var(--dark);
+    .form-submit {
+      background: var(--gradient);
       color: white;
-      padding: 60px 0 30px;
+      border: none;
+      padding: var(--space-md) var(--space-xl);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      transition: all 0.3s ease;
+      width: 100%;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Footer redesenhado */
+    footer {
+      background-color: var(--neutral-dark);
+      color: white;
+      padding: var(--space-xxl) 0 var(--space-xl);
     }
     
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-xl);
     }
     
-    .footer-logo {
+    .footer-about h3 {
       font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 20px;
-    }
-    
-    .footer-logo span {
-      color: var(--secondary);
+      margin-bottom: var(--space-md);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
     }
     
     .footer-about p {
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 20px;
-      font-size: 0.95rem;
+      opacity: 0.7;
+      margin-bottom: var(--space-lg);
     }
     
     .social-links {
       display: flex;
-      gap: 15px;
+      gap: var(--space-md);
     }
     
     .social-link {
-      width: 36px;
-      height: 36px;
-      background-color: rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
     }
     
     .social-link:hover {
-      background-color: var(--primary);
+      background: var(--primary);
+      transform: translateY(-3px);
     }
     
     .footer-links h4 {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: white;
+      margin-bottom: var(--space-lg);
+      font-size: 1.2rem;
     }
     
     .footer-links ul {
@@ -500,312 +367,198 @@
     }
     
     .footer-links li {
-      margin-bottom: 10px;
+      margin-bottom: var(--space-sm);
     }
     
     .footer-links a {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
     
     .footer-links a:hover {
-      color: white;
-    }
-    
-    .footer-contact p {
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .footer-contact a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-contact a:hover {
-      color: white;
+      color: var(--accent);
     }
     
     .footer-bottom {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: var(--space-xxl);
+      padding-top: var(--space-lg);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     
     .copyright {
-      color: rgba(255,255,255,0.5);
+      opacity: 0.5;
       font-size: 0.9rem;
     }
     
-    .footer-nav {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .footer-nav a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.3s;
-    }
-    
-    .footer-nav a:hover {
-      color: white;
-    }
-    
-    /* Responsiveness */
+    /* Responsividade aprimorada */
     @media (max-width: 992px) {
-      .hero-container,
-      .features-grid,
+      .hero-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
       
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .hero-content {
+        text-align: center;
       }
       
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .hero-mockup {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
       nav ul {
-        gap: 15px;
+        display: none;
       }
       
-      .hero {
-        padding: 120px 0 60px;
+      .mobile-menu-button {
+        display: block;
       }
       
       .hero-content h1 {
         font-size: 2.5rem;
       }
     }
-    
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        gap: 15px;
-      }
-      
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
-    <div class="container header-container">
-      <a href="#" class="logo">
-        <img src="https://via.placeholder.com/40x40/0056b3/ffffff?text=J" alt="Juzita AI Logo" class="logo-img">
-        <div class="logo-text">Juzita<span>AI</span></div>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#como-funciona">Como Funciona</a></li>
-          <li><a href="#recursos">Recursos</a></li>
-          <li><a href="#cases">Casos de Sucesso</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contato" class="nav-button">Fale Conosco</a></li>
-        </ul>
-      </nav>
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <div class="logo-icon">J</div>
+          <div class="logo-text">Juzita<span>AI</span></div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#cases">Histórias</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <a href="#contato" class="cta-button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.4 3.6C19.2 2.4 17.6 1.8 16 1.8C14.4 1.8 12.8 2.4 11.6 3.6L10 5.2L8.4 3.6C7.2 2.4 5.6 1.8 4 1.8C2.4 1.8 0.8 2.4 -0.4 3.6C-1.6 4.8 -2.2 6.4 -2.2 8C-2.2 9.6 -1.6 11.2 -0.4 12.4L10 22.8L20.4 12.4C21.6 11.2 22.2 9.6 22.2 8C22.2 6.4 21.6 4.8 20.4 3.6Z"/>
+          </svg>
+          Falar com a Juzita
+        </a>
+      </div>
     </div>
   </header>
 
   <section class="hero">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <h1>Economize tempo e dinheiro com <span>análise inteligente</span> de contas</h1>
-        <p>A Juzita AI analisa suas contas e contratos automaticamente, identifica cobranças indevidas e te ajuda a recuperar seu dinheiro. Solução completa via WhatsApp, sem complicações.</p>
-        <div class="hero-buttons">
-          <a href="#" class="primary-button">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-            </svg>
-            Falar com a Juzita
-          </a>
-          <a href="#como-funciona" class="secondary-button">Saiba Mais</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://via.placeholder.com/600x400/e9ecef/0056b3?text=Juzita+AI" alt="Juzita AI em ação">
-      </div>
-    </div>
-  </section>
-
-  <section id="recursos" class="features">
     <div class="container">
-      <div class="section-title">
-        <h2>Nossos Recursos</h2>
-        <p>Tecnologia avançada para identificar e resolver problemas em suas contas e contratos</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Análise de Cobranças</h3>
-          <p>Identificamos cobranças indevidas, taxas ocultas e erros de cálculo em suas contas de luz, água, telefone, internet e outros serviços.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📄</div>
-          <h3>Verificação de Contratos</h3>
-          <p>Analisamos seus contratos para identificar cláusulas abusivas, condições desfavoráveis e oportunidades de negociação mais vantajosas.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Relatórios Detalhados</h3>
-          <p>Receba análises completas com explicações claras sobre os problemas encontrados e quanto você pode economizar com nossas recomendações.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Modelos de Contestação</h3>
-          <p>Fornecemos modelos de contestação personalizados com base na legislação atual para facilitar a resolução de problemas identificados.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>100% via WhatsApp</h3>
-          <p>Todo o processo é realizado pelo WhatsApp, sem necessidade de instalar aplicativos adicionais ou criar novas contas.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Privacidade Garantida</h3>
-          <p>Seus dados são protegidos com criptografia de ponta a ponta e usados exclusivamente para análise, seguindo as normas da LGPD.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="como-funciona" class="how-it-works">
-    <div class="container">
-      <div class="section-title">
-        <h2>Como Funciona</h2>
-        <p>Processo simples e eficiente para resolver seus problemas com contas e contratos</p>
-      </div>
-      <div class="steps-container">
-        <div class="steps-line"></div>
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Envio de Documentos</h3>
-            <p>Tire uma foto da sua conta ou contrato e envie para nosso número no WhatsApp. Nossa tecnologia suporta contas de energia, telefonia, internet, água, gás, bancos e diversos serviços.</p>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Tecnologia que defende seus direitos</h1>
+          <p>A Juzita AI analisa faturas e contratos automaticamente, identifica cobranças indevidas e te ajuda a recuperar seu dinheiro. Tudo via WhatsApp, sem complicação.</p>
+          <div class="hero-buttons">
+            <a href="#" class="cta-button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
+              Comece Agora
+            </a>
           </div>
         </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Análise Inteligente</h3>
-            <p>Nossa tecnologia de IA analisa o documento para identificar cobranças indevidas, taxas abusivas, erros de cálculo e oportunidades de economia, comparando com a legislação atual e práticas de mercado.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Relatório Detalhado</h3>
-            <p>Receba um relatório completo com todos os problemas identificados, explicações claras, potencial de economia e recomendações personalizadas para cada situação.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Solução Facilitada</h3>
-            <p>Fornecemos modelos de contestação personalizados e orientações detalhadas para que você possa resolver os problemas identificados com facilidade e eficiência.</p>
-          </div>
+        <div class="hero-image">
+          <img src="https://via.placeholder.com/600x400/121212/4cc9f0?text=Juzita+AI" alt="Juzita AI Interface" class="hero-mockup">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="cases" class="testimonials">
+  <!-- Integração com os formulários existentes -->
+  <section id="contato" class="contact">
     <div class="container">
-      <div class="section-title">
-        <h2>Casos de Sucesso</h2>
-        <p>Veja como ajudamos nossos clientes a economizar tempo e dinheiro</p>
-      </div>
-      <div class="testimonial-slider">
-        <div class="testimonial">
-          <div class="testimonial-content">
-            "A Juzita analisou minha conta de energia e identificou uma cobrança indevida que se repetia há meses. Graças às orientações, consegui um reembolso de R$ 576,40 e a correção do problema. O processo foi simples e rápido."
-          </div>
-          <div class="testimonial-author">Marina Silva</div>
-          <div class="testimonial-company">São Paulo, SP</div>
+      <h2>Entre em Contato</h2>
+      <form action="https://forms.gle/NQKnLtbjR2vvUxiP6" method="GET" class="contact-form">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar Mensagem</button>
+      </form>
     </div>
   </section>
 
-  <section class="stats">
+  <section id="newsletter" class="newsletter">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <h3>97%</h3>
-          <p>Taxa de Sucesso</p>
+      <h2>Quero fazer parte da luta</h2>
+      <form action="https://forms.gle/NQKnLtbjR2vvUxiP6" method="GET" class="contact-form">
+        <div class="form-group">
+          <label for="email">Seu Email</label>
+          <input type="email" id="email" name="email" required>
         </div>
-        <div class="stat-item">
-          <h3>R$ 2.3M</h3>
-          <p>Economizados para Clientes</p>
-        </div>
-        <div class="stat-item">
-          <h3>15k+</h3>
-          <p>Documentos Analisados</p>
-        </div>
-        <div class="stat-item">
-          <h3>4.9/5</h3>
-          <p>Avaliação de Clientes</p>
-        </div>
-      </div>
+        <button type="submit" class="form-submit">Inscrever-me</button>
+      </form>
     </div>
   </section>
 
-  <section class="cta">
+  <section id="beta-test" class="beta-test">
     <div class="container">
-      <h2>Pronto para economizar?</h2>
-      <p>Envie sua conta ou contrato pelo WhatsApp e descubra como podemos ajudar você a recuperar seu dinheiro e tempo.</p>
-      <a href="#" class="cta-button">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-        Começar Agora
-      </a>
+      <h2>Me avise quando estiver pronta</h2>
+      <form action="https://forms.gle/zwDYN5zvwk2vSyv97" method="GET" class="contact-form">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required>
+        </div>
+        <button type="submit" class="form-submit">Participar da Beta</button>
+      </form>
     </div>
   </section>
 
-  <footer id="contato">
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <div class="footer-logo">Juzita<span>AI</span></div>
-          <p>A Juzita AI utiliza tecnologia avançada de inteligência artificial para analisar contas e contratos, identificar problemas e ajudar consumidores a economizar tempo e dinheiro.</p>
+          <h3>Juzita AI</h3>
+          <p>A Juzita AI utiliza tecnologia avançada para analisar suas contas e contratos, identificando cobranças indevidas e ajudando você a recuperar seu dinheiro de forma simples e rápida.</p>
           <div class="social-links">
             <a href="#" class="social-link">
-              <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6 12c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"/>
               </svg>
             </a>
             <a href="#" class="social-link">
-              <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6 12c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"/>
               </svg>
             </a>
             <a href="#" class="social-link">
-              <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link">
-              <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6 12c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"/>
               </svg>
             </a>
           </div>
@@ -815,50 +568,24 @@
           <ul>
             <li><a href="#como-funciona">Como Funciona</a></li>
             <li><a href="#recursos">Recursos</a></li>
-            <li><a href="#cases">Casos de Sucesso</a></li>
-            <li><a href="#faq">Perguntas Frequentes</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#cases">Histórias</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
         <div class="footer-links">
-          <h4>Serviços</h4>
-          <ul>
-            <li><a href="#">Análise de Contas</a></li>
-            <li><a href="#">Verificação de Contratos</a></li>
-            <li><a href="#">Contestações</a></li>
-            <li><a href="#">Para Empresas</a></li>
-            <li><a href="#">Dispositivos de Monitoramento</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
           <h4>Contato</h4>
-          <p>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-            </svg>
-            <a href="mailto:aijuzita@gmail.com">aijuzita@gmail.com</a>
-          </p>
-          <p>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
-            <a href="https://github.com/juzita-ai" target="_blank">github.com/juzita-ai</a>
-          </p>
-          <p>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
-              <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-            </svg>
-            <a href="https://api.whatsapp.com/send?phone=5511XXXXXXXX&text=Ol%C3%A1,%20quero%20analisar%20uma%20conta" target="_blank">WhatsApp Business</a>
-          </p>
+          <ul>
+            <li><a href="mailto:aijuzita@gmail.com">aijuzita@gmail.com</a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=5511XXXXXXXX">WhatsApp</a></li>
+            <li><a href="https://forms.gle/NQKnLtbjR2vvUxiP6">Formulário de Contato</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="copyright">© 2025 Juzita AI. Todos os direitos reservados.</div>
         <div class="footer-nav">
-          <a href="termos.html">Termos de Uso</a>
-          <a href="privacidade.html">Política de Privacidade</a>
-          <a href="cookies.html">Cookies</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade</a>
         </div>
       </div>
     </div>
