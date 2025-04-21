@@ -563,6 +563,67 @@ nav a:hover::after {
   opacity: 0.9;
 }
 
+/* ========= WAITLIST SECTION ========= */
+.waitlist {
+  padding: var(--space-xxl) 0;
+  background: var(--neutral-dark);
+  color: white;
+  text-align: center;
+}
+
+.waitlist-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.waitlist h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.waitlist p {
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+}
+
+.waitlist-form {
+  background: rgba(255,255,255,0.1);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.waitlist-form input {
+  width: 100%;
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.waitlist-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+}
+
+.info-item {
+  padding: var(--space-md);
+}
+
+.info-item .number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.info-item .label {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
 /* ========= CONTACT SECTION ========= */
 .contact-section {
   padding: var(--space-xxl) 0;
@@ -835,5 +896,33 @@ footer {
     flex-direction: column;
     gap: var(--space-md);
     text-align: center;
+  }
+  
+  .waitlist-info {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .step {
+    flex-direction: column;
+  }
+  
+  .step-number {
+    margin-bottom: var(--space-md);
+  }
+  
+  .feature-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .feature-icon {
+    margin-bottom: var(--space-sm);
   }
 }
