@@ -1,0 +1,265 @@
+/* Estilos para a seção Sobre Juzita */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead-text {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0.9;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.feature-item {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(114, 9, 183, 0.1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.feature-text h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xs);
+  color: var(--primary);
+}
+
+.feature-text p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.image-with-dots {
+  position: relative;
+}
+
+.image-with-dots img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 2;
+}
+
+.dot-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 20px;
+  left: 20px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+  background-size: 10px 10px;
+  z-index: 1;
+}
+
+/* Estilos para a seção de Casos */
+.cases-section {
+  padding: var(--space-xxl) 0;
+  background-color: var(--neutral-light);
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.case-card {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.case-icon {
+  background: var(--gradient);
+  color: white;
+  padding: var(--space-lg);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.case-title {
+  padding: var(--space-md) var(--space-lg);
+  margin: 0;
+  color: var(--primary);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.case-content {
+  padding: var(--space-lg);
+}
+
+.case-list {
+  list-style: none;
+  margin-bottom: var(--space-lg);
+}
+
+.case-list li {
+  padding: var(--space-xs) 0;
+  padding-left: var(--space-lg);
+  position: relative;
+}
+
+.case-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.case-example {
+  background-color: rgba(114, 9, 183, 0.05);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.example-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.info p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.example-quote {
+  font-style: italic;
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+}
+
+.stats {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+}
+
+.stat .number {
+  display: block;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.stat .label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Estilos para estatísticas */
+.stats-section {
+  padding: var(--space-xxl) 0;
+  background: var(--gradient);
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+.stat-item {
+  padding: var(--space-md);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: var(--space-sm);
+  font-family: 'Outfit', sans-serif;
+}
+
+.stat-description {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .about-grid,
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
